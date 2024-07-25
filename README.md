@@ -5,16 +5,16 @@ The Repository contains an explanation of many aspects like the strategies and t
 These files are:
 Diagrams, DC motor, Power consumption and power supply, Driver.
 
-## Open challenge strategy:
+## Open challenge strategy
 For the open challenge, our algorithm depends basically on the distance sensors (HC-SR04) and the IMU (MPU6050) sensor, we implemented a Kalman filter to get accurate measurements of the orientation.
 There are 8 ultrasonic sensors postured as shown in (found in others directory).
-The front one is (0) and the back one is (4)
-(2) and  (3) are the right sensors used to detect the turn in the clockwise round.
-(2) and  (3) are the right sensors used to detect the turn in the clockwise round.
-(1)  And (7) are installed on two sgSG-90ervo motors which move according to the Robot’s angle to guarantee good measurement of the perpendicular distance from the walls.
+* The front one is (0) and the back one is (4)
+* (2) and  (3) are the right sensors used to detect the turn in the clockwise round.
+* (2) and  (3) are the right sensors used to detect the turn in the clockwise round.
+* (1)  And (7) are installed on two sgSG-90ervo motors which move according to the Robot’s angle to guarantee good measurement of the perpendicular distance from the walls.
 As the new rule states that the vehicle must not touch the outer wall, we declared a dangerous area which is 8cm from the outer wall.
 The robot moves forward controlling the direction with PDthe  controller based on MPthe U6050 reading.
-Obstacle challenge strategy:
+## Obstacle challenge strategy
 We found out that planning a path for each stretch of the map and guiding the robot to follow it can be a confusing method because it needs perfect calibration for our camera and this may take a long time (maybe preparation time before the round is not sufficient).
 So the algorithm in the first turn (the pillars are not known yet) will be: 
 The vehicle will pass the forward section in two stages and the corner section in one stage. In the forward section, the pixy will detect the pillars location and then path the pillars one by one (the flow chart in (the others directory will declare this better))
@@ -27,12 +27,12 @@ Note: detailed diagrams for both open and obstacle challenges are included in th
 ## Mobility management
 Vehicle’s chassis:
 We bought a simple chassis with Ackerman for front-wheel servo steering. The kit contained four wheels, one metal base, nuts and bolts, a DC Motor, and a servo motor with an Ackerman mechanism with no sensors or additional parts. After that, we chose a suitable set of sensors and power supplies. We planned in advance to use a multi-floor design with 3D printed Ultrasonic holders and laser cut floor to have a balanced weight distribution.  
-We used another DC motor because the one with the kit was not good, also we changed the rear axle and assembled the wheels with a Lego differential to make the movement better especially on turns.
+We used another DC motor because the one with the kit was not good, also we changed the rear axle and assembled the wheels with a Lego differential to move better, especially on turns.
 To do this we printed a 3D coupler to transfer movement from the engine to the differential’s axis.
 The 3D printed parts and plexi laser cut parts are included in the directory (models).
 Details of the motor and the torque calculation are in the directory (others).
 
-## Power and sense management:
+## Power and sense management
 The power calculations are detailed in a PDF file in the directory (scheme). The file contains an accurate calculation of the needed current and the needed supply voltage for the circuit components, in addition, some requirements were considered to choose a suitable battery to supply the sensors and actuators with sufficient power.
 The used sensors are: 
 1. ultrasonic sensors: dealing with walls and barriers can be enhanced with Ultrasonic Sensor. You shoot out a sound, wait to hear it echo back, and if you have your timing right, you will know how far away the wall is. Using the HC-SR04 Ultrasonic Sensor made it easy for our vehicle to avoid hitting the walls and find its best route between the colored pillars.
